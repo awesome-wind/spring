@@ -1,15 +1,10 @@
 package com.zhang.Demo.controller;
 
-
-
-//import com.alibaba.fastjson.JSONArray;
 //import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONObject;
 import com.zhang.Demo.entity.DataTableParameter;
 import com.zhang.Demo.entity.User;
 import com.zhang.Demo.service.MyService;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,15 +16,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/demo")
 public class MyController {
-
-//    @RequestMapping("/test")
-//    @ResponseBody
-//    public User test(@ModelAttribute User user) {
-//
-//
-//        return user;
-//    }
-
 
     private MyService myService;
 

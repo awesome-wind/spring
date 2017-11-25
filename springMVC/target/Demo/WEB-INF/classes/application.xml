@@ -13,17 +13,13 @@
                                             http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
                                             http://www.springframework.org/schema/data/jpa  http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd  ">
 
-
-
         <!--自动扫描（自动注入）-->
         <context:component-scan base-package="com.zhang.Demo" />
 
         <!--第一步，配置数据源-->
-
         <bean  id="dataSource"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
                 <property  name="driverClass"  value="com.mysql.jdbc.Driver"/>
-                <property  name="jdbcUrl"  value="jdbc:mysql:///demo"/>
-                <!--jdbc:mysqsl://localhost:3306/xxx-->
+                <property  name="jdbcUrl"  value="jdbc:mysql:///demo"/><!--jdbc:mysqsl://localhost:3306/xxx-->
                 <property  name="user"  value="root"/>
                 <property  name="password"  value="wangzhang"/>
                 <!--连接池中保留的最大连接数。默认值:  15  -->
@@ -48,7 +44,6 @@
                 </property>
         </bean>
 
-
         <bean  id="hibernateJpaVendorAdapter"
                class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property  name="databasePlatform"  value="org.hibernate.dialect.MySQLDialect"  />
@@ -66,8 +61,6 @@
         <tx:annotation-driven transaction-manager="transactionManager"
                               proxy-target-class="true" />
 
-
-
         <mvc:default-servlet-handler/>
         <mvc:annotation-driven/>
         <mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
@@ -76,8 +69,5 @@
                 <property name="prefix" value="/WEB-INF/page/"/>
                 <property name="suffix" value=".jsp"/>
         </bean>
-
-
-
 
 </beans>
