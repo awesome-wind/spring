@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+body,
+html {
+    width: 100%;
+    font: 12px/1.5 Arial, 'Microsoft YaHei', 'SimSun';
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+/* 模态框样式 */
+/* 弹窗样式，利用三层div来实现垂直水平居中 */
+
+.center-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+}
+
+.center-inner {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    height: 100%;
+    width: 100%;
+}
+
+.center-outside {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 999;
+    width: 100%;
+}
+
+.center-outside .mark-bg {
+    height: 0;
+    overflow: hidden;
+    height: 100%;
+    background-color: #fff;
+    width: 100%;
+    filter: alpha(opacity=20);
+    opacity: 0.2;
+    -moz-opacity: 0.2;
+    z-index: 998;
+}
+
+.center-outside .close-icon {
+    position: absolute;
+    top: 4px;
+    right: 9px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1000;
+}
+
+.modal-content {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 14px;
+    box-shadow: rgba(183, 183, 183, 0.8) 0px 0px 10px;
+    background-color: #fff;
+}
+
+.modal-header {
+    margin: 0 30px;
+    padding: 20px 15px 5px 15px;
+    font-size: 22px;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.modal-header .icon-close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    position: absolute;
+    right: -15px;
+    display: inline-block;
+    line-height: 100%;
+    font-size: 16px;
+    color: #ccc;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAeFBMVEUAAAC/v7++vr7AwMC/v7+/v7+/v7+/v7+/v7/AwMC/v7+/v7++vr7AwMC/v7++vr6/v7++vr6/v7/BwcG8vLy/v7+/v7/AwMC/v7/CwsK/v7/Ozs69vb23t7fAwMDAwMDAwMC/v7+9vb3BwcHAwMC/v7+/v7+6urovWf3rAAAAJnRSTlMAyQYHyoV/t3oy6MPAPPDto6Bxavn338q2pI2LalBGCAKYmFlAKTXADxoAAAHQSURBVGje7drZbsIwEAXQSxxnAULZyw7dhv//w4pGaQQKnTbXVR3V82bJ8RHJeGESXOKQTOwezmNvJ/ZQNbKRiMy3ro3tXERG07Kxlo84D41LwgzP5bhjAJhKFXHkzohiqWIG5A/yGb3ImdGrR+3nSERcKrVRR4YnURTakA2sXCuGN0x8PWaGYiFXERvXxkMOZKIopCEzABg4VczjzXBDXOLYu1Uien7U0TvWyUDnmDKUrvCGrnAGr+iG3oE39C680U6hDL0bb+gdeUPvyht6Z97Qu/OGfsHfX9JwgR83mE8Vf5Kem75+LUTtl1T/Nod225yfG/bPjx7+HqLuD6UbvKIbvKIbvAKoBq+kqW7wimIQCmHwSm3wCmEQimIQimrwim7wkd4aKdBF5N7t6tqD/yqFuzQZtWWlKwtki6WeN1arBsX/7ff7Bwm/j0QNg4VaX6j1hVpfqPWFWl+o9YVany8LUaj1+blh/5Nan1EM8gWzAYDTQDHIV+WDEwCrGPRL/wQoFopBK6MCVjN4JcGzU6MxlTbIfv8P81T9zIfP5P4bMFM+jKGfywsArM9lw/GnV9X0m5Tt3fLyoxI4jqQvIstd1cyTsS3gPF7tOMsB4B3h15cw9TyOJwAAAABJRU5ErkJggg==) no-repeat;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+}
+
+.modal-header .close:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 0 30px 15px 30px;
+    aligh:center;
+}
+
+.modal .modal-body button {
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    background: #297ee5;
+    width: 130px;
+    border-radius: 15px;
+    color: #fff;
+    display: block;
+    margin: 4px auto 0 auto;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modal .modal-body button:hover {
+    background: #1b74e0
+}
+
+.center-outside.modal .center-middle {
+    width: 400px;
+    height: 300px;
+}
+
+.center-outside.modal .mark-bg {
+    background-color: #000;
+    filter: alpha(opacity=40);
+    opacity: 0.4;
+    -moz-opacity: 0.4;
+}
+
+.container{
+    padding: 10px;
+    height: 2000px;
+    background: url(https://olpkwt43d.qnssl.com/blog/images/man_zu_zhi_wang.jpg) no-repeat;
+    background-size: 100% auto;
+
+}
+.container>button{
+    padding: 2px 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                                            http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                                            http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                                            http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                                            http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+                                            http://www.springframework.org/schema/data/jpa  http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd  ">
+
+
+
+        <!--自动扫描（自动注入）-->
+        <context:component-scan base-package="com.zhang.Demo" />
+
+        <!--第一步，配置数据源-->
+
+        <bean  id="dataSource"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <property  name="driverClass"  value="com.mysql.jdbc.Driver"/>
+                <property  name="jdbcUrl"  value="jdbc:mysql:///demo"/>
+                <!--jdbc:mysqsl://localhost:3306/xxx-->
+                <property  name="user"  value="root"/>
+                <property  name="password"  value="wangzhang"/>
+                <!--连接池中保留的最大连接数。默认值:  15  -->
+                <property  name="maxPoolSize"  value="1000"/>
+                <!--  连接池中保留的最小连接数，默认为：3-->
+                <property  name="minPoolSize"  value="800"/>
+                <!--  初始化连接池中的连接数，取值应在minPoolSize与maxPoolSize之间，默认为3-->
+                <property  name="initialPoolSize"  value="500"/>
+        </bean>
+
+        <bean  id="entityManagerFactory"
+               class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+                <property  name="dataSource"  ref="dataSource"  />
+                <property  name="jpaVendorAdapter"  ref="hibernateJpaVendorAdapter"  />
+                <property  name="packagesToScan"  value="com.zhang.Demo.entity"  />
+                <property  name="jpaProperties">
+                        <props>
+                                <prop  key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+                                <prop  key="hibernate.show_sql">true</prop>
+                                <prop  key="hibernate.hbm2ddl.auto">update</prop>
+                        </props>
+                </property>
+        </bean>
+
+
+        <bean  id="hibernateJpaVendorAdapter"
+               class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property  name="databasePlatform"  value="org.hibernate.dialect.MySQLDialect"  />
+        </bean>
+
+        <bean  id="transactionManager"  class="org.springframework.orm.jpa.JpaTransactionManager">
+                <property  name="entityManagerFactory"  ref="entityManagerFactory"  />
+        </bean>
+
+        <jpa:repositories base-package="com.zhang.Demo.repository"
+                          entity-manager-factory-ref="entityManagerFactory"
+                          transaction-manager-ref="transactionManager">
+        </jpa:repositories>
+
+        <tx:annotation-driven transaction-manager="transactionManager"
+                              proxy-target-class="true" />
+
+
+
+        <mvc:default-servlet-handler/>
+        <mvc:annotation-driven/>
+        <mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
+        <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
+                <property name="prefix" value="/WEB-INF/page/"/>
+                <property name="suffix" value=".jsp"/>
+        </bean>
+
+
+
+
+</beans>
