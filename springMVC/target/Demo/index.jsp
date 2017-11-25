@@ -1,38 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: wangz
-  Date: 2017/11/6
-  Time: 10:32
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>Title</title>
 
-    <!-- jQuery -->
     <script type="text/javascript" charset="utf8" src="dataTable/js/jquery.js"></script>
-    <%--<script src="bootstrap/bootstrap.js"></script>--%>
-
-
-    <%--<!-- DataTables CSS -->--%>
     <link rel="stylesheet" type="text/css" href="dataTable/css/jquery.dataTables.css">
-    <%--<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">--%>
-
     <link rel="stylesheet" type="text/css" href="dataTable/css/dataTables.bootstrap.css">
-    <%--<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">--%>
-    <%--<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css">--%>
-
-
-    <%--<!-- DataTables -->--%>
     <script type="text/javascript" charset="utf8" src="dataTable/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="dataTable/js/dataTables.bootstrap.js"></script>
-    <%--<script type="text/javascript" charset="UTF-8" src="bootstrap/js/bootstrap.js"></script>--%>
-    <%--<script type="text/javascript" charset="UTF-8" src="bootstrap/js/model.js"></script>--%>
-
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <%--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>--%>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
@@ -138,7 +115,6 @@
 
                 };
 
-
                 $.ajax({
                     type:"GET",
                     url:"demo/addOne",
@@ -211,10 +187,6 @@
             });
 
             $("#id_label").show();
-//            $("#id").attr("value",modify_id);
-//            $("#name").attr("value",modify_id);
-//            $("#id").attr("value",modify_id);
-//            $("#id").attr("value",modify_id);
 
             $("#id").attr("disabled","disabled");
             $("#name").removeAttr("disabled");
@@ -228,7 +200,6 @@
                 var phone= $("#phone").val;
 
                 var modifyData={"id":id,"name":name,"job":job,"phone":phone};
-//                alert(modifyData.phone);
 
                 $.ajax({
                     type:"GET",
@@ -260,7 +231,6 @@
             window.location.reload();
         }
 
-
     </script>
 
     <%--搜索功能实现--%>
@@ -279,10 +249,6 @@
             });
         })
     </script>
-
-
-
-
 
 
 </head>
