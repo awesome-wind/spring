@@ -31,7 +31,6 @@ public class MyServiceImpl implements MyService{
         return user;
     }
 
-
     public List<User> findAll() {
         List<User> all = myRepository.findAll();
         return all;
@@ -95,7 +94,6 @@ public class MyServiceImpl implements MyService{
             sSortDirs.add(sortDir);
 
         }
-
         return new DataTableParameter(sEcho,iDisplayStart,iDisplayLength,iColumns, mDataProps, bSortables, iSortingCols, iSortCols, sSortDirs,iSortColsName);
     }
 

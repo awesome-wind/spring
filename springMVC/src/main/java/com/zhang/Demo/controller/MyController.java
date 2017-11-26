@@ -18,7 +18,6 @@ import java.util.List;
 public class MyController {
 
     private MyService myService;
-
     @Autowired
     public void setMyService(MyService myService) {
         this.myService = myService;
@@ -30,6 +29,35 @@ public class MyController {
     {
         myService.save(user);
         return user;
+    }
+
+    @RequestMapping(value="/findOne",method= RequestMethod.GET)
+    @ResponseBody
+    public JSONObject findOne(int id)
+    {
+        User user = myService.findOne(id);
+        JSONObject json = new JSONObject();
+        json.put("data",user);
+        return json;
+    }
+
+    @RequestMapping(value="/deleteById",method= RequestMethod.GET)
+    @ResponseBody
+    public void deleteById(int id)
+    {
+        myService.delete(id);
+        return ;
+    }
+
+    @RequestMapping(value="/modifyOne",method= RequestMethod.GET)
+    @ResponseBody
+    //WebRequest request, ModelMap model,@RequestBody User user
+    public JSONObject modifyOne(@ModelAttribute User user){
+
+        User user1=myService.saveAndFlush(user);
+        JSONObject json = new JSONObject();
+        json.put("data",user1);
+        return json;
     }
 
     @RequestMapping(value="/findAll",method= RequestMethod.GET)
@@ -50,9 +78,10 @@ public class MyController {
         User user = myService.findById(id);
         JSONObject json = new JSONObject();
         json.put("data",user);
-
         return json;
     }
+
+
 
 
     @RequestMapping(value="/findByName",method= RequestMethod.GET)
@@ -66,48 +95,9 @@ public class MyController {
         return json;
     }
 
-    @RequestMapping(value="/findOne",method= RequestMethod.GET)
-    @ResponseBody
-    public JSONObject findOne(int id)
-    {
-        User user = myService.findOne(id);
-        JSONObject json = new JSONObject();
-        json.put("data",user);
-
-        return json;
-    }
-
-//    delete
-
-    @RequestMapping(value="/deleteById",method= RequestMethod.GET)
-    @ResponseBody
-    public void deleteById(int id)
-    {
-        myService.delete(id);
-        return ;
-    }
-
-
-    //modify
-    @RequestMapping(value="/modifyOne",method= RequestMethod.GET)
-    @ResponseBody
-    //WebRequest request, ModelMap model,@RequestBody User user
-    public JSONObject modifyOne(@ModelAttribute User user){
-
-        User user1=myService.saveAndFlush(user);
-        JSONObject json = new JSONObject();
-        json.put("data",user1);
-
-        return json;
-    }
-
-
-
     @RequestMapping(value="/tableDemoAjax",method= RequestMethod.GET)
     @ResponseBody
     public String tableDemoAjax(@RequestParam String aoData) {
-
-        System.out.println(aoData);
 
         DataTableParameter dataTableParam = myService.getDataTableParameterByJsonParam(aoData);
 
@@ -123,7 +113,6 @@ public class MyController {
         getObj.put("iTotalDisplayRecords", userList.size());//显示的行数,这个要和上面写的一样
 
         getObj.put("aaData", userList.subList(dataTableParam.getiDisplayStart(),iDisplayEnd));//要以JSON格式返回
-//        System.out.println(getObj);
         return getObj.toString();
     }
 
