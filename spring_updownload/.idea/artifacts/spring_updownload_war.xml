@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring_updownload:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="updownload.war">
+      <element id="artifact" artifact-name="spring_updownload:war exploded" />
+    </root>
+  </artifact>
+</component>
