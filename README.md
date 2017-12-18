@@ -9,4 +9,4 @@
 ## spring_updownload
 实现文件的上传(可指定位置），预览显示，下载
 
-![](redpocket.jpg) ![](alipay.jpg)
+![](images/redpocket.jpg) ![](images/alipay.jpg)
