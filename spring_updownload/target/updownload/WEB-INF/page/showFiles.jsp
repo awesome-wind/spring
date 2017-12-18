@@ -13,7 +13,7 @@
             var path = "/images/"+name;
             var html = "<img alt='暂无图片' src="+path+"  width='180px' onclick='downFile(this)'/>";
             var picture = test(name);
-            html+=picture+"<a href="+downURL+">下载</a></br>";
+            html+=picture+"<a href="+downURL+">下载</a><br\>";
             $('#picture').append(html);
         }
 

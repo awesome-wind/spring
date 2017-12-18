@@ -9,19 +9,15 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <annotation-driven />
 
-    <!--<resources mapping="/resources/**" location="/resources/" />-->
     <resources mapping="/images/**" location="/fileUpload/img/" />
     <resources mapping="/page/**" location="/WEB-INF/page/"/>
     <resources mapping="/static/**" location="/static/" />
 
-    <!-- 把标记了@Controller注解的类转换为bean -->
     <context:component-scan base-package="controller" />
-    <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/page/" />
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
-
 
     <!-- 上传文件的设置 ，maxUploadSize=-1，表示无穷大。uploadTempDir为上传的临时目录 -->
     <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"

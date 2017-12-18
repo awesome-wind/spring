@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +21,6 @@ public class FileController {
     }
 
     @RequestMapping("/onefile")
-    @ResponseBody
     public String oneFileUpload(@RequestParam("file") CommonsMultipartFile file, ModelMap model) {
         /**
          * 获取原始文件名，定义一个新的唯一的文件名
@@ -56,8 +54,8 @@ public class FileController {
             }
         }
 
-        model.addAttribute("fileURL",path+newFileName);
-        return "show";
+//        model.addAttribute("fileURL",path+newFileName);
+        return "redirect:index.jsp";
     }
 
     @RequestMapping("/files")
@@ -98,7 +96,7 @@ public class FileController {
         }
 
 //        model.addAttribute("fileList",list);
-        return "showFiles";
+        return "redirect:index.jsp";
     }
 
     @RequestMapping("/show")
@@ -131,7 +129,7 @@ public class FileController {
                 return ;
             }
 
-            // 处理文件名
+            // 处理文件名，或者在前台处理
 //            String realname = fileName.substring(fileName.indexOf("-") + 1);
 //            System.out.println("实际文件名："+realname);
 //            System.out.println("fileName:"+fileName);

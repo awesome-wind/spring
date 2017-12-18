@@ -18,8 +18,7 @@
         <input type="file" name="file" /><br />
         <input type="submit" value="上 传" />
     </form>
-    <h5>上传结果：</h5>
-
+    <%--<h5>上传结果：</h5>--%>
     <%--<c:forEach items="${fileList}" var="image">--%>
         <%--<img alt="暂无图片" src="${ image }" />	<br/>--%>
     <%--</c:forEach>--%>

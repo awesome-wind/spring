@@ -9,13 +9,6 @@
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
       <version>4.3.12.RELEASE</version>
@@ -38,26 +31,6 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
       <version>4.3.12.RELEASE</version>
-    </dependency>
-
-    <!--log4j-->
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.12</version>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.0.1</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.7</version>
     </dependency>
 
     <dependency>
@@ -102,8 +75,6 @@
       <artifactId>standard</artifactId>
       <version>1.1.2</version>
     </dependency>
-
-
 
   </dependencies>
   <build>
