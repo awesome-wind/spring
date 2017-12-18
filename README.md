@@ -13,8 +13,3 @@
     <a href="images/redpocket.jpg"><img src="images/redpocket.jpg" width="200"></a>
     <a href="images/alipay.jpg"><img src="images/alipay.jpg" width="200" ></a>
 </figure>
-
-<figure class="half">
-    <img src="images/redpocket.jpg" width="200" style="display: inline-block"/>
-    <img src="images/alipay.jpg" width="200" style="display: inline-block"/>
-</figure>
