@@ -10,6 +10,11 @@
 实现文件的上传(可指定位置），预览显示，下载
 
 <figure class="half">
+    <a href="images/redpocket.jpg"><img src="images/redpocket.jpg" width="200"></a>
+    <a href="images/alipay.jpg"><img src="images/alipay.jpg" width="200" ></a>
+</figure>
+
+<figure class="half">
     <img src="images/redpocket.jpg" width="200" style="display: inline-block"/>
     <img src="images/alipay.jpg" width="200" style="display: inline-block"/>
 </figure>
