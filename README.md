@@ -10,7 +10,7 @@
 实现文件的上传(可指定位置），预览显示，下载
 
 
-<figure class="center">
+<figure class="half">
     <img src="images/redpocket.jpg" width="300">
     <img src="images/alipay.jpg" width="300">
 </figure>
