@@ -10,6 +10,6 @@
 实现文件的上传(可指定位置），预览显示，下载
 
 <figure class="half">
-    <img src="{{https://github.com/itOcean/spring}}/images/redpocket.jpg" width="200" style="display: inline-block"/>
-    <img src="{{https://github.com/itOcean/spring}}/images/alipay.jpg" width="200" style="display: inline-block"/>
+    <img src="https://github.com/itOcean/spring/images/redpocket.jpg" width="200" style="display: inline-block"/>
+    <img src="https://github.com/itOcean/spring/images/alipay.jpg" width="200" style="display: inline-block"/>
 </figure>
